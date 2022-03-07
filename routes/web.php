@@ -6,6 +6,7 @@ use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommunityController;
 
 
 
@@ -52,6 +53,11 @@ Route::post('/register', [RegistrationController::class, 'register'])->name('reg
 // login
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
+// display community
+Route::get('/community', [CommunityController::class, 'index'])->name('community.index');
+// specific user
+Route::get('/community/{id}/show', [CommunityController::class, 'show'])->name('community.show');
 
 if (env('APP_ENV') !== 'local') {
     URL::forceScheme('https');

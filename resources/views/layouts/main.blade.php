@@ -27,7 +27,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Community</a>
+                        <a class="nav-link" href="{{route('community.index')}}">Community</a>
                     </li>
                     @if(Auth::check())
                         <li class="nav-item">
