@@ -31,6 +31,8 @@
                         @enderror
                     </div>
                 </div>
+            </div>
+            <div class="mb-3">
                 <div class="row g-3">
                     <div class="col-md-8">
                         <label for="email">Email <span class="text-danger">*</span></label>
@@ -40,6 +42,8 @@
                         @enderror
                     </div>
                 </div>
+            </div>
+            <div class="mb-3">
                 <div class="row g-3">
                     <div class="col-md-8">
                         <label for="password">Password <span class="text-danger">*</span></label>

@@ -24,15 +24,29 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('route.index')}}">Browse</a>
                             <a class="dropdown-item" href="{{route('route.create')}}">Add</a>
-                            <a class="dropdown-item" href="#">Edit</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Community</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
-                    </li>
+                    @if(Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('profile.index')}}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" action="{{route('auth.logout')}}">
+                                @csrf
+                                <button type="submit" class="btn btn-link">Logout</button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('registration.index')}}">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('login')}}">Sign In</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('route.create')}}">Create</a>
                     </li>
@@ -45,6 +59,12 @@
         <div class="row mt-3">
             <h1>@yield("title")</h1>
         </div>
+
+        @if(session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{session('error')}}
+            </div>
+        @endif
 
         <main>
             @yield("content")

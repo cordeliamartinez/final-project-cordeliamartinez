@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\AuthController;
 
 
 
@@ -41,6 +42,9 @@ Route::post('/register', [RegistrationController::class, 'register'])->name('reg
 // login
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
+// logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
