@@ -24,16 +24,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// display the routes
+Route::middleware(['auth'])->group(function() {
+    // profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+
+    // logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+    // create a new route
+    Route::get('/routes/new', [RouteController::class, 'create'])->name('route.create');
+    Route::post('/routes', [RouteController::class, 'store'])->name('route.store');
+
+    // edit a route
+    Route::get('/routes/{id}/edit', [RouteController::class, 'edit'])->name('route.edit');
+    Route::post('/routes/{id}', [RouteController::class, 'update'])->name('route.update');
+});
+
+// display all the routes
 Route::get('/routes', [RouteController::class, 'index'])->name('route.index');
 // show the specific route info
 Route::get('/routes/{id}/show', [RouteController::class, 'show'])->name('route.show');
-// create a new route
-Route::get('/routes/new', [RouteController::class, 'create'])->name('route.create');
-Route::post('/routes', [RouteController::class, 'store'])->name('route.store');
-// edit a route
-Route::get('/routes/{id}/edit', [RouteController::class, 'edit'])->name('route.edit');
-Route::post('/routes/{id}', [RouteController::class, 'update'])->name('route.update');
 
 // register
 Route::get('/register', [RegistrationController::class, 'index'])->name('registration.index');
@@ -42,12 +52,6 @@ Route::post('/register', [RegistrationController::class, 'register'])->name('reg
 // login
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
-
-// logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-
-// profile
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 
 if (env('APP_ENV') !== 'local') {
     URL::forceScheme('https');

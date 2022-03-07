@@ -8,8 +8,6 @@
 
     <h5>By: {{$routeInfo->user->name}}</h5>
 
-    <span class="border border-dark mt-3">Description: {{$routeInfo->notes}}</span>
-
     <table class="table table-condensed mt-5">
         <tr>
             <th scope="row">Difficulty</th>
@@ -39,12 +37,25 @@
             <th scope="row">Est. Time</th>
             <td>{{$routeInfo->time}} hrs</td>
         </tr>
-        <tr>
-            <th scope="row">Link</th>
-            <td>
-                <a href="{{$routeInfo->link}}">{{$routeInfo->name}} on Strava</a>
-            </td>
-        </tr>
+        @if($routeInfo->link)
+            <tr>
+                <th scope="row">Link</th>
+                <td>
+                    <a href="{{$routeInfo->link}}">{{$routeInfo->name}} on Strava</a>
+                </td>
+            </tr>
+        @endif
+        @if($routeInfo->notes)
+            <tr>
+                <td colspan="2">
+                    <p><b>Notes:</b> {{$routeInfo->notes}}</p>
+                </td>
+            </tr>
+        @endif
     </table>
+
+    <a href="{{route('route.index')}}">
+        <button class="btn btn-primary mb-4 mt-4">Back to Routes</button>
+    </a>
 
 @endsection
