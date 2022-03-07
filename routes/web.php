@@ -39,6 +39,11 @@ Route::middleware(['auth'])->group(function() {
     // edit a route
     Route::get('/routes/{id}/edit', [RouteController::class, 'edit'])->name('route.edit');
     Route::post('/routes/{id}', [RouteController::class, 'update'])->name('route.update');
+
+    // display community
+    Route::get('/community', [CommunityController::class, 'index'])->name('community.index');
+    // specific user
+    Route::get('/community/{id}/show', [CommunityController::class, 'show'])->name('community.show');
 });
 
 // display all the routes
@@ -54,10 +59,6 @@ Route::post('/register', [RegistrationController::class, 'register'])->name('reg
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
-// display community
-Route::get('/community', [CommunityController::class, 'index'])->name('community.index');
-// specific user
-Route::get('/community/{id}/show', [CommunityController::class, 'show'])->name('community.show');
 
 if (env('APP_ENV') !== 'local') {
     URL::forceScheme('https');

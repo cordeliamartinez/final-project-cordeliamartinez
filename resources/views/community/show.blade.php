@@ -15,7 +15,13 @@
             <div class="card-text">
                 <ul>
                     <li>is a {{$user->type->type}} Cyclist</li>
-                    <li>has {{$user->route->count()}} Routes</li>
+                    <li>has {{$user->route->count()}} 
+                        @if($user->route->count() === 1)
+                            route
+                        @else
+                            routes
+                        @endif
+                    </li>
                     <li>can be reached at: <a href = "mailto: {{$user->email}}">{{$user->email}}</a></li>
                 </ul>
             </div>

@@ -9,6 +9,7 @@ use App\Models\Type;
 use App\Models\Difficulty;
 use App\Models\Terrain;
 use App\Models\User;
+use Auth;
 
 class RouteController extends Controller
 {
@@ -58,11 +59,9 @@ class RouteController extends Controller
         ]);
 
         $route = new Route();
+        $user = Auth::user();
 
-        // CHANGE!
-        $route->user_id = 1;
-        // CHANGE!
-
+        $route->user_id = $user->id;
         $route->name = $request->input('name');
         $route->difficulty_id = $request->input('difficulty');
         $route->start = $request->input('start');

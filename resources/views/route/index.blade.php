@@ -19,7 +19,6 @@
                     <th>Elevation</th>
                     <th>Type</th>
                     <th>Difficulty</th>
-                    <th>Edit</th>
                 </tr>
 
                 @foreach($routes as $route)
@@ -31,9 +30,6 @@
                         <td>{{$route->elevation}} m</td>
                         <td>{{$route->type->type}}</td>
                         <td>{{$route->difficulty->difficulty}}</td>
-                        <td>
-                            <a href="{{route('route.edit', ['id' => $route->id])}}">Edit</a>
-                        </td>
                     </tr>
                 @endforeach
             </table>

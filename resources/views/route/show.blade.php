@@ -57,5 +57,8 @@
     <a href="{{route('route.index')}}">
         <button class="btn btn-primary mb-4 mt-4">Back to Routes</button>
     </a>
+    <a href="{{route('community.show', ['id' => $routeInfo->user->id])}}">
+        <button class="btn btn-secondary mb-4 mt-4">Go to {{$routeInfo->user->name}}</button>
+    </a>
 
 @endsection
