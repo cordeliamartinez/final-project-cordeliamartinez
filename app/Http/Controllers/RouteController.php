@@ -77,8 +77,8 @@ class RouteController extends Controller
         $route->save();
 
         return redirect()
-            ->route('route.index')
-            ->with('success', "Successfully created new route {$request->input('name')}");
+            ->route('profile.index')
+            ->with('success', "Successfully created your new route {$request->input('name')}");
     }
 
     public function edit($id) {
@@ -112,10 +112,6 @@ class RouteController extends Controller
 
         $route = Route::all()->find($id);
 
-        // CHANGE!
-        $route->user_id = 1;
-        // CHANGE!
-
         $route->name = $request->input('name');
         $route->difficulty_id = $request->input('difficulty');
         $route->start = $request->input('start');
@@ -131,7 +127,7 @@ class RouteController extends Controller
         $route->save();
 
         return redirect()
-            ->route('route.index')
-            ->with('success', "Successfully updated route {$request->input('name')}");
+            ->route('profile.index')
+            ->with('success', "Successfully updated your route {$request->input('name')}");
     }
 }

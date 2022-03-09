@@ -55,9 +55,19 @@
         </nav>
     </div>
 
+    <div class="row mt-3 justify-content-center">
+        <div class="col-sm-10">
+            @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+        </div>
+    </div>
+
     <div class="container">
-        <div class="row mt-3">
-            <h1>@yield("title")</h1>
+        <div class="row mt-3 justify-content-center">
+            <h1 class="col-md-10 bg-primary text-white p-2">@yield("title")</h1>
         </div>
 
         @if(session('error'))
