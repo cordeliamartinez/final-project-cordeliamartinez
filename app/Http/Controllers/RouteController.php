@@ -130,4 +130,23 @@ class RouteController extends Controller
             ->route('profile.index')
             ->with('success', "Successfully updated your route {$request->input('name')}");
     }
+
+    public function delete($id) {
+        $route = Route::all()->find($id);
+
+        return view('route.delete', [
+            'route' => $route,
+        ]);
+    }
+
+    public function destroy($id) {
+        $route = Route::all()->find($id);
+        $routeName = $route->name;
+
+        $route->delete();
+
+        return redirect()
+            ->route('profile.index')
+            ->with('success', "Successfully deleted your route {$routeName}");
+    }
 }

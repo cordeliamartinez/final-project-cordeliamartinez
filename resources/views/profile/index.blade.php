@@ -42,6 +42,7 @@
                     <th>Type</th>
                     <th>Difficulty</th>
                     <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 @foreach($user->route as $route)
                     <tr>
@@ -52,6 +53,9 @@
                         <td>{{$route->difficulty->difficulty}}</td>
                         <td>
                             <a href="{{route('route.edit', ['id' => $route->id])}}">Edit</a>
+                        </td>
+                        <td>
+                            <a href="{{route('route.delete', ['id' => $route->id])}}">Delete</a>
                         </td>
                     </tr>
                 @endforeach

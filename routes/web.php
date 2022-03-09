@@ -44,6 +44,10 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/community', [CommunityController::class, 'index'])->name('community.index');
     // specific user
     Route::get('/community/{id}/show', [CommunityController::class, 'show'])->name('community.show');
+
+    //delete a route
+    Route::get('/routes/{id}/delete', [RouteController::class, 'delete'])->name('route.delete');
+    Route::post('/routes/{id}', [RouteController::class, 'destroy'])->name('route.destroy');
 });
 
 // display all the routes
