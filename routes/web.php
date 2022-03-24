@@ -7,8 +7,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\CommentController;
 
-
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,14 @@ Route::middleware(['auth'])->group(function() {
     // specific user
     Route::get('/community/{id}/show', [CommunityController::class, 'show'])->name('community.show');
 
-    //delete a route
+    // delete a route
     Route::get('/routes/{id}/delete', [RouteController::class, 'delete'])->name('route.delete');
-    Route::post('/routes/{id}', [RouteController::class, 'destroy'])->name('route.destroy');
+    Route::post('/routes/{id}/delete', [RouteController::class, 'destroy'])->name('route.destroy');
+
+    // store a comment
+    Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
+    // delete a comment
+    Route::post('/comment/{id}/{routeID}/destroy', [CommentController::class, 'destroy'])->name('comment.destroy');
 });
 
 // display all the routes

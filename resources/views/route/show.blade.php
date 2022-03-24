@@ -67,8 +67,69 @@
         </div>
     </div>
 
+    <hr>
+
+    <div class="row mt-3 justify-content-center">
+        <div class="col-sm-10">
+            <h4 class="mt-3">Comments</h4>
+            <hr>
+        </div>
+    </div>
+
+    <form method="POST" action="{{route('comment.store')}}">
+            @csrf
+            <div class="mb-3">
+                <div class="row g-3 justify-content-center">
+                    <div class="col-sm-10">
+                        <input type="hidden" id="route" name="route" value="{{$routeInfo->id}}">
+                        <textarea class="form-control" id="comment" name="comment" placeholder="What is your Comment?">{{old('comment')}}</textarea>
+                        @error("comment")
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 justify-content-center">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary mb-4">Comment</button>
+                </div>
+            </div>
+    </form>
+
+    @if(count($comments) > 0)
+        @foreach($comments as $comment)
+            <div class="row mt-3 justify-content-center">
+                <div class="col-sm-10">
+                    <h4 class="bg-primary text-white p-2">"{{$comment->comment}}"</h4>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-10">
+                    <p class="ml-4">By: {{$comment->user->name}}</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-10">
+                    <p class="small fst-italic">Posted on {{date_format($comment->created_at, 'n/j/Y')}} at {{date_format($comment->created_at, 'g:i A')}}</p>
+                    <form method="POST" action="{{route('comment.destroy', ['id' => $comment->id, 'routeID' => $routeInfo->id])}}">
+                        @csrf
+                            <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
+    @else
+        <div class="row justify-content-center mb-3">
+            <div class="col-sm-10">
+                <p class="text-uppercase fst-italic text-primary">No comments yet! Be the first to comment by using the form above.</p>
+            </div>
+        </div>
+    @endif
+
+
     <div class="row justify-content-center mb-4 mt-4">
         <div class="col-sm-10">
+            <hr>
             <a href="{{route('route.index')}}" role="button" class="btn btn-primary text-nowrap">
                 Back to Routes
             </a>

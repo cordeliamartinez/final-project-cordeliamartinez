@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function type() {
         return $this->belongsTo(Type::class);
     }
+
+    public function comment() {
+        return $this->hasMany(Comment::class);
+    }
 }

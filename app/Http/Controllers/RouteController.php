@@ -9,6 +9,7 @@ use App\Models\Type;
 use App\Models\Difficulty;
 use App\Models\Terrain;
 use App\Models\User;
+use App\Models\Comment;
 use Auth;
 
 class RouteController extends Controller
@@ -24,8 +25,11 @@ class RouteController extends Controller
     public function show($id) {
         $routeInfo = Route::with(['type', 'difficulty', 'terrain', 'user'])->find($id);
 
+        $comments = Comment::with(['user', 'route'])->where('route_id', '=', $id)->orderBy('created_at', 'DESC')->get();
+
         return view('route.show', [
             'routeInfo' => $routeInfo,
+            'comments' => $comments,
         ]);
     }
 

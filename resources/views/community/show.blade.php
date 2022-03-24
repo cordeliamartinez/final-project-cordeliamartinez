@@ -6,7 +6,7 @@
 
 @section("content")
 
-    <div class="row g-3 justify-content-center">    
+    <div class="row justify-content-center">    
         <div class="col-sm-10">
             <div class="card mt-4">
                 <div class="card-header">
@@ -37,7 +37,7 @@
     </div>
 
     @if($user->route->count() > 0)
-        <div class="row g-3 justify-content-center">
+        <div class="row justify-content-center">
             <div class="col-sm-10">
                 <h4 class="bg-primary text-white p-2">{{$user->name}}'s Routes</h4>
                 <table class="table table-condensed mt-2">
@@ -61,9 +61,11 @@
             </div>
         </div>
     @else
-        <div class="row mt-5">
-            <h4>Sorry,</h4>
-            <h5>It seems like {{$user->name}} doesn't have any routes to display.</h5>
+        <div class="row mt-5 justify-content-center">
+            <div class="col-sm-10">
+                <h4>Sorry,</h4>
+                <h5>but it seems like {{$user->name}} doesn't have any routes to display.</h5>
+            </div>
         </div>
     @endif
 
