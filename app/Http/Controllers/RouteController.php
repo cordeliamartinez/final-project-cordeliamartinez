@@ -91,6 +91,8 @@ class RouteController extends Controller
         $types = Type::all();
         $difficulties = Difficulty::all();
 
+        $this->authorize('update', $route);
+
         return view('route.edit', [
             'route' => $route,
             'terrains' => $terrains,
@@ -137,6 +139,8 @@ class RouteController extends Controller
 
     public function delete($id) {
         $route = Route::all()->find($id);
+
+        $this->authorize('delete', $route);
 
         return view('route.delete', [
             'route' => $route,

@@ -51,12 +51,16 @@
                         <td>{{$route->elevation}} m</td>
                         <td>{{$route->type->type}}</td>
                         <td>{{$route->difficulty->difficulty}}</td>
-                        <td>
-                            <a href="{{route('route.edit', ['id' => $route->id])}}">Edit</a>
-                        </td>
-                        <td>
-                            <a href="{{route('route.delete', ['id' => $route->id])}}">Delete</a>
-                        </td>
+                        @can('update', $route)
+                            <td>
+                                <a href="{{route('route.edit', ['id' => $route->id])}}">Edit</a>
+                            </td>
+                        @endcan
+                        @can('delete', $route)
+                            <td>
+                                <a href="{{route('route.delete', ['id' => $route->id])}}">Delete</a>
+                            </td>
+                        @endcan
                     </tr>
                 @endforeach
             </table>

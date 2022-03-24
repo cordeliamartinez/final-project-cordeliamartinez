@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Route;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class RoutePolicy
+class CommentPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class RoutePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Route  $route
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Route $route)
+    public function view(User $user, Comment $comment)
     {
         //
     }
@@ -41,41 +41,41 @@ class RoutePolicy
      */
     public function create(User $user)
     {
-        // only logged in users can access it because of middleware
+        //
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Route  $route
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Route $route)
+    public function update(User $user, Comment $comment)
     {
-        return $user->id === $route->user->id;
+        return $user->id === $comment->user->id;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Route  $route
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Route $route)
+    public function delete(User $user, Comment $comment)
     {
-        return $user->id === $route->user->id;
+        return $user->id === $comment->user->id;
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Route  $route
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Route $route)
+    public function restore(User $user, Comment $comment)
     {
         //
     }
@@ -84,10 +84,10 @@ class RoutePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Route  $route
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Route $route)
+    public function forceDelete(User $user, Comment $comment)
     {
         //
     }

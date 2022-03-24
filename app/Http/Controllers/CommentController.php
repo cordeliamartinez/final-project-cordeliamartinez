@@ -30,8 +30,14 @@ class CommentController extends Controller
 
     }
 
+    public function update($id) {
+        $this->authorize('update', $comment);
+    }
+
     public function destroy($id, $routeID) {
         $comment = Comment::all()->find($id);
+
+        $this->authorize('delete', $comment);
 
         $comment->delete();
 

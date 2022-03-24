@@ -111,10 +111,24 @@
             <div class="row justify-content-center">
                 <div class="col-sm-10">
                     <p class="small fst-italic">Posted on {{date_format($comment->created_at, 'n/j/Y')}} at {{date_format($comment->created_at, 'g:i A')}}</p>
-                    <form method="POST" action="{{route('comment.destroy', ['id' => $comment->id, 'routeID' => $routeInfo->id])}}">
-                        @csrf
-                            <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
-                    </form>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-1">
+                    @can('update', $comment)
+                        <form method="POST" action="">
+                            @csrf
+                                <button class="btn btn-sm btn-outline-success" type="submit">Edit</button>
+                        </form>
+                    @endcan
+                </div>
+                <div class="col-sm-9 float-left">
+                    @can('delete', $comment)
+                        <form method="POST" action="{{route('comment.destroy', ['id' => $comment->id, 'routeID' => $routeInfo->id])}}">
+                            @csrf
+                                <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                        </form>
+                    @endcan
                 </div>
             </div>
         @endforeach
