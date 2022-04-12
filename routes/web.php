@@ -8,6 +8,8 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FavoriteController;
+
 
 use Illuminate\Support\Facades\URL;
 
@@ -54,6 +56,11 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
     // delete a comment
     Route::post('/comment/{id}/{routeID}/destroy', [CommentController::class, 'destroy'])->name('comment.destroy');
+
+    // store a favorite route
+    Route::post('/route/favorite', [FavoriteController::class, 'store'])->name('favorite.store');
+    // delete a favorite route
+    Route::post('/route/favorite/{id}', [FavoriteController::class, 'destroy'])->name('favorite.destroy');
 });
 
 // display all the routes
