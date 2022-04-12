@@ -116,10 +116,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-1">
                     @can('update', $comment)
-                        <form method="POST" action="">
-                            @csrf
-                                <button class="btn btn-sm btn-outline-success" type="submit">Edit</button>
-                        </form>
+                        <a class="btn btn-sm btn-outline-success" href="{{route('comment.edit', ['id' => $comment->id])}}" role="button">Edit</a>
                     @endcan
                 </div>
                 <div class="col-sm-9 float-left">

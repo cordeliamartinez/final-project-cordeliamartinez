@@ -30,8 +30,32 @@ class CommentController extends Controller
 
     }
 
-    public function update($id) {
+    public function edit($id) {
+        $comment = Comment::all()->find($id);
+
         $this->authorize('update', $comment);
+
+        return view('comment.edit', [
+            'comment' => $comment,
+        ]);
+    }
+
+    public function update($id, Request $request) {
+        $request->validate([
+            'comment' => 'required|min:5',
+        ]);
+
+        $comment = Comment::all()->find($id);
+
+        $comment->comment = $request->input('comment');
+
+        $this->authorize('update', $comment);
+
+        $comment->save();
+
+        return redirect()
+            ->route('route.show', ['id' => $comment->route->id])
+            ->with('success', "Successfully updated your comment.");
     }
 
     public function destroy($id, $routeID) {

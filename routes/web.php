@@ -56,6 +56,9 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
     // delete a comment
     Route::post('/comment/{id}/{routeID}/destroy', [CommentController::class, 'destroy'])->name('comment.destroy');
+    // edit a comment
+    Route::get('/comment/{id}/edit', [CommentController::class, 'edit'])->name('comment.edit');
+    Route::post('/comment/{id}', [CommentController::class, 'update'])->name('comment.update');
 
     // store a favorite route
     Route::post('/route/favorite', [FavoriteController::class, 'store'])->name('favorite.store');
