@@ -1,6 +1,6 @@
 body {
     background-image: url("/img/background.jpg");
-    background-size: 1500px;
+    background-size: 100% auto;
     margin: 0px;
     padding: 0px;
 }
@@ -12,6 +12,9 @@ body {
 }
 .transparent {
     background-color: rgba(255, 255, 255,0.8);
+}
+content {
+    background-color: rgba(255, 255, 255,1);
 }
 .btn-outline-fuxia {
     color: #aa206c;
@@ -60,6 +63,9 @@ hr {
 .navbar-brand {
     color: white;
 }
+.navbar-brand:hover {
+    color: #dbe800;
+}
 .btn-delete {
     background-color:#ff9000;
     color:white;
@@ -79,4 +85,13 @@ hr {
     background-color: #8BA13F;
     color:white;
     outline: 1px solid #8BA13F;
+}
+.card-header {
+    background-color: #dbe800;
+}
+.hover-icon {
+    color: rgba(0,0,0,0);
+}
+.link-icon:hover .hover-icon {
+    color: #ff9000;
 }

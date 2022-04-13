@@ -7,7 +7,7 @@
 @section("content")
 
     <div class="row mt-3 justify-content-center">
-        <div class="col-sm-10">
+        <div class="col-sm-11">
             <h4 class="mt-3">Tell us what's different with your comment</h4>
             <hr>
         </div>
@@ -16,7 +16,7 @@
     <form method="POST" action="{{route('comment.update', ['id' => $comment->id])}}" class="mt-2">
         @csrf
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-10">
+                <div class="col-md-11">
                     <label for="comment" class="mb-2">Comment</label>
                     <textarea class="form-control" id="comment" name="comment">{{old('comment', $comment->comment)}}</textarea>
                     @error("comment")
@@ -25,11 +25,10 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-sm-10">
-                    <button class="btn btn-primary" type="submit">Edit</button>
+                <div class="col-sm-11 mb-4">
+                    <button class="btn btn-edit" type="submit">Edit</button>
                     <input type="reset" class="btn btn-secondary" value="Reset"></button>
                 </div>
             </div>
     </form>
-
 @endsection
