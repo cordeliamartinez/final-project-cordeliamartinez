@@ -41,7 +41,7 @@ class FavoritePolicy
      */
     public function create(User $user)
     {
-
+        
     }
 
     /**

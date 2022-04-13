@@ -39,7 +39,7 @@
     @if($user->route->count() > 0)
         <div class="row justify-content-center">
             <div class="col-sm-10">
-                <h4 class="bg-primary text-white p-2">{{$user->name}}'s Routes</h4>
+                <h4 class="bg-primary text-white p-2"> {{$user->name}}'s Routes</h4>
                 <table class="table table-condensed mt-2">
                     <tr>
                         <th>Name</th>

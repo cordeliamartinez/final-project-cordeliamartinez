@@ -10,6 +10,7 @@ use App\Models\Difficulty;
 use App\Models\Terrain;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Favorite;
 use Auth;
 
 class RouteController extends Controller
@@ -150,6 +151,8 @@ class RouteController extends Controller
     public function destroy($id) {
         $route = Route::all()->find($id);
         $routeName = $route->name;
+
+        $this->authorize('delete', $route);
 
         $route->delete();
 

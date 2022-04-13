@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield("title") - Final Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
-
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand p-2" href="#">Navbar</a>
+        <nav class="navbar navbar-expand-lg bg-black">
+            <a class="navbar-brand p-2" href="#">myBikeRoute.com</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,7 +36,7 @@
                         <li class="nav-item">
                             <form method="post" action="{{route('auth.logout')}}">
                                 @csrf
-                                <button type="submit" class="btn btn-link">Logout</button>
+                                <button type="submit" class="btn btn-link special-link">Logout</button>
                             </form>
                         </li>
                     @else
@@ -65,9 +65,9 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container transparent justify-content-center col-8">
         <div class="row mt-3 justify-content-center">
-            <h1 class="col-md-10 bg-primary text-white p-2">@yield("title")</h1>
+            <h1 class="col bg-fuxia text-white p-2">@yield("title")</h1>
         </div>
 
         @if(session('error'))
@@ -80,6 +80,7 @@
             @yield("content")
         </main>
     </div>
+
 
 
 

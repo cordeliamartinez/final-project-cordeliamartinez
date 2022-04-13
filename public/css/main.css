@@ -1,0 +1,82 @@
+body {
+    background-image: url("/img/background.jpg");
+    background-size: 1500px;
+    margin: 0px;
+    padding: 0px;
+}
+.bg-fuxia {
+    background-color: #aa206c;
+}
+.text-yellow {
+    color: #dbe800;
+}
+.transparent {
+    background-color: rgba(255, 255, 255,0.8);
+}
+.btn-outline-fuxia {
+    color: #aa206c;
+    outline: 1px solid #aa206c;
+}
+.btn-outline-fuxia:hover {
+    background-color: #aa206c;
+    color: white;
+    outline: 1px solid #aa206c;
+}
+.btn-primary {
+    background-color: #0047DF;
+    outline: 1px solid #0047DF;
+    color: white;
+}
+.mt-n1 {
+    margin-top: -0.50rem !important;
+}
+a {
+    color: #0047DF;
+}
+hr {
+    color: #aa206c;
+}
+.btn-warning {
+    color: white;
+}
+.btn-warning:hover {
+    color:white;
+    background-color: rgb(230, 175, 14);
+    outline: 1px solid rgb(230, 175, 14);
+}
+.nav-link {
+    color: white;
+}
+.nav-link:hover {
+    color: #D4D3CD;
+}
+.special-link {
+    color: white;
+    text-decoration: none;
+}
+.special-link:hover {
+    color: #D4D3CD;
+}
+.navbar-brand {
+    color: white;
+}
+.btn-delete {
+    background-color:#ff9000;
+    color:white;
+    outline: 1px solid #ff9000;
+}
+.btn-delete:hover {
+    background-color: #EC8807;
+    color:white;
+    outline: 1px solid #EC8807; 
+}
+.btn-edit {
+    background-color:rgb(169,196,76);
+    color:white;
+    outline: 1px solid rgb(169,196,76);
+}
+.btn-edit:hover {
+    background-color: #8BA13F;
+    color:white;
+    outline: 1px solid #8BA13F;
+}

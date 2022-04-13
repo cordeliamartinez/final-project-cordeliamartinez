@@ -5,7 +5,7 @@
 @section("content")
 
     <div class="row mt-3 justify-content-center">
-        <div class="col-sm-10">
+        <div class="col-sm-12">
             <h4 class="mt-3">Tell us about your route</h4>
             <hr>
         </div>
@@ -15,14 +15,14 @@
     <form method="POST" action="{{route('route.store')}}" class="mt-2">
         @csrf
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <label for="name">Name <span class="text-danger">*</span></label>
                     <input class="form-control" type="text" id="name" name="name" value="{{old('name')}}">
                     @error("name")
                         <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="difficulty">Difficulty <span class="text-danger">*</span></label>
                     <select name="difficulty" id="difficulty" class="form-select">
                         <option value="">-- Select Difficulty --</option>
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-4">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary mb-4">Save</button>
                     <input type="reset" class="btn btn-secondary mb-4" value="Reset"></button>
