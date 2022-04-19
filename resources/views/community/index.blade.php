@@ -17,7 +17,7 @@
                     @foreach($users as $user)
                         <tr>
                             <td>
-                                <a href="{{route('community.show', ['id' => $user->id])}}" class="text-dark text-decoration-none link-icon">
+                                <a href="{{route('community.show', ['id' => $user->id])}}" class="text-dark link-icon">
                                     {{$user->name}}  
                                     <span class="hover-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

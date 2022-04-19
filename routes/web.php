@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\HomepageController;
 
 
 use Illuminate\Support\Facades\URL;
@@ -65,6 +66,9 @@ Route::middleware(['auth'])->group(function() {
     // delete a favorite route
     Route::post('/route/favorite/{id}', [FavoriteController::class, 'destroy'])->name('favorite.destroy');
 });
+
+// homepage
+Route::get('/mybikeroute', [HomepageController::class ,'index'])->name('homepage.index');
 
 // display all the routes
 Route::get('/routes', [RouteController::class, 'index'])->name('route.index');

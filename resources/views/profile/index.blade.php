@@ -49,7 +49,7 @@
                 @foreach($user->favorite as $favorite)
                     <tr>
                         <td>
-                            <a href="{{route('route.show', ['id' => $favorite->route->id])}}" class="text-dark link-icon text-decoration-none">
+                            <a href="{{route('route.show', ['id' => $favorite->route->id])}}" class="text-dark link-icon">
                                 {{$favorite->route->name}}  
                                 <span class="hover-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
@@ -120,7 +120,7 @@
                 @foreach($user->route as $route)
                     <tr>
                         <td>
-                            <a href="{{route('route.show', ['id' => $route->id])}}" class="text-dark link-icon text-decoration-none">
+                            <a href="{{route('route.show', ['id' => $route->id])}}" class="text-dark link-icon">
                                 {{$route->name}}  
                                 <span class="hover-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
