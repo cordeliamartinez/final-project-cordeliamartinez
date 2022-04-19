@@ -52,13 +52,13 @@ hr {
     text-decoration: none;
 }
 .special-link:hover {
-    color: #D4D3CD;
+    color: #aa206c;
 }
 .navbar-brand {
-    color: #dbe800;
+    color: #dbe800 !important;
 }
 .navbar-brand:hover {
-    color: white;
+    color: white !important;
 }
 .btn-delete {
     background-color:#ff9000;
@@ -171,20 +171,22 @@ hr {
 }
 .dropdown-item:hover{
     background-color: black;
-    color: #dbe800;
-}
-.nav-link {
-    color: white;
-}
-.active {
-    color: #aa206c !important;
-}
-.nav-link:visited {
-    color: white;
-}
-.nav-link:hover {
     color: #aa206c;
 }
-.navbar-toggler navbar-toggler-icon {
-    border-color: white;
+.nav-link {
+    color: white !important;
 }
+.nav-link.active {
+    color: #aa206c !important;
+}
+.nav-link:hover {
+    color: #aa206c !important;
+}
+.navbar-toggler {
+    border: 1px solid white !important;
+}
+.dropdown-item.active {
+    color: #aa206c;
+    background-color: black;
+}
+

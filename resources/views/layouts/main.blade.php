@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="row">
-        <nav class="navbar navbar-expand-lg bg-black">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-black">
             <div class="container-fluid">
                 <a class="navbar-brand p-2" href="{{route('homepage.index')}}">myBikeRoute.com</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbaSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,20 +21,20 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle {{ (string) Route::current()->getName() == "route.index" ? "active" : ""}} {{ (string) Route::current()->getName() == "route.create" ? "active" : ""}}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Routes
                             </a>
                             <ul class="dropdown-menu bg-black" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{route('route.index')}}">View All</a></li>
-                                <li><a class="dropdown-item" href="{{route('route.create')}}">Create</a></li>
+                                <li><a class="dropdown-item {{ (string) Route::current()->getName() == "route.index" ? "active" : ""}}" href="{{route('route.index')}}">View All</a></li>
+                                <li><a class="dropdown-item {{ (string) Route::current()->getName() == "route.create" ? "active" : ""}}" href="{{route('route.create')}}">Create</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('community.index')}}">Community</a>
+                            <a class="nav-link {{ (string) Route::current()->getName() == "community.index" ? "active" : ""}}" href="{{route('community.index')}}">Community</a>
                         </li>
                         @if(Auth::check())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('profile.index')}}">Profile</a>
+                                <a class="nav-link {{ (string) Route::current()->getName() == "profile.index" ? "active" : ""}}" href="{{route('profile.index')}}">Profile</a>
                             </li>
                             <li class="nav-item">
                                 <form method="post" action="{{route('auth.logout')}}">
@@ -43,16 +43,13 @@
                                 </form>
                             </li>
                         @else
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{route('registration.index')}}">Sign Up</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('login')}}">Sign In</a>
+                                <a class="nav-link {{ (string) Route::current()->getName() == "login" ? "active" : ""}}" href="{{route('login')}}">Sign In</a>
                             </li>
                         @endif
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('route.create')}}">Create</a>
-                        </li>
                     </ul>
                 </div>
             </div>
