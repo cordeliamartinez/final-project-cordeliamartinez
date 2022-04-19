@@ -46,7 +46,7 @@
                     <th>Date Added</th>
                     <th class="text-center">Remove</th>
                 </tr>
-                @foreach($user->favorite as $favorite)
+                @foreach($user->favorite->sortByDesc('created_at') as $favorite)
                     <tr>
                         <td>
                             <a href="{{route('route.show', ['id' => $favorite->route->id])}}" class="text-dark link-icon">
@@ -117,7 +117,7 @@
                     <th class="text-center">Edit</th>
                     <th class="text-center">Delete</th>
                 </tr>
-                @foreach($user->route as $route)
+                @foreach($user->route->sortBy('difficulty_id') as $route)
                     <tr>
                         <td>
                             <a href="{{route('route.show', ['id' => $route->id])}}" class="text-dark link-icon">

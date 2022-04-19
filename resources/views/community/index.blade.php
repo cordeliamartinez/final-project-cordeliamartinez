@@ -14,7 +14,7 @@
                         <th>Type</th>
                         <th>Routes</th>
                     </tr>
-                    @foreach($users as $user)
+                    @foreach($users->sortBy('name') as $user)
                         <tr>
                             <td>
                                 <a href="{{route('community.show', ['id' => $user->id])}}" class="text-dark link-icon">

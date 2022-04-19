@@ -56,13 +56,14 @@
         </nav>
     </div>
 
-    <div class="row mt-3 justify-content-center">
-        <div class="col-sm-10">
-            @if(session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
+    <div class="container mt-2 justify-content-center col-8">
+        <div class="row justify-content-center">
+                @if(session('success'))
+                    <div class="col alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
 
