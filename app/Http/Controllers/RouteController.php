@@ -13,11 +13,12 @@ use App\Models\Comment;
 use App\Models\Favorite;
 use Auth;
 
+
 class RouteController extends Controller
 {
     public function index() {
         // $routes = Route::with(['type', 'difficulty', 'terrain', 'user'])->orderBy('difficulty_id')->get();
-        $routes = Route::with(['type', 'difficulty', 'terrain', 'user'])->get()->sortBy('difficulty_id');
+        $routes = Route::with(['type', 'difficulty', 'terrain'])->get()->sortBy('difficulty_id');
 
         return view('route.index', [
             'routes' => $routes,
@@ -25,9 +26,9 @@ class RouteController extends Controller
     }
 
     public function show($id) {
-        $routeInfo = Route::with(['type', 'difficulty', 'terrain', 'user'])->find($id);
+        $routeInfo = Route::find($id);
 
-        $comments = Comment::with(['user', 'route'])->where('route_id', '=', $id)->get()->sortByDesc('created_at');
+        $comments = Comment::where('route_id', '=', $id)->get()->sortByDesc('created_at');
 
         return view('route.show', [
             'routeInfo' => $routeInfo,

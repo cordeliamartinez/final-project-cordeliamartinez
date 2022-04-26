@@ -5,7 +5,7 @@
 @section("content")
 
     <div class="row mt-3 justify-content-center">
-        <div class="col-sm-12">
+        <div class="col-sm-11">
             <h4 class="mt-3">Tell us about your route</h4>
             <hr>
         </div>
@@ -15,7 +15,7 @@
     <form method="POST" action="{{route('route.store')}}" class="mt-2">
         @csrf
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <label for="name">Name <span class="text-danger">*</span></label>
                     <input class="form-control" type="text" id="name" name="name" value="{{old('name')}}">
                     @error("name")
@@ -37,7 +37,7 @@
             </div>
 
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="start ">Start Location <span class="text-danger">*</span></label>
                     <input class="form-control" type="text" id="start" name="start" value="{{old('start')}}">
                     @error("start")
@@ -54,7 +54,7 @@
             </div>
 
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label for="type ">Type <span class="text-danger">*</span></label>
                     <select name="type" id="type" class="form-select">
                         <option value="">-- Select Type --</option>
@@ -95,7 +95,7 @@
                         <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <label for="time">Time <span class="text-danger">*</span></label>
                     <input class="form-control" type="text" id="time" name="time" value="{{old('time')}}">
                     @error("time")
@@ -105,7 +105,7 @@
             </div>
             
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-10">
+                <div class="col-md-11">
                     <label for="notes">Notes</label>
                     <textarea class="form-control" id="notes" name="notes">{{old('notes')}}</textarea>
                     @error("notes")
@@ -115,7 +115,7 @@
             </div>
 
             <div class="row mb-3 justify-content-center">
-                <div class="col-md-10">
+                <div class="col-md-11">
                     <label for="link">Link</label>
                     <input class="form-control" type="url" id="link" name="link" value="{{old('link')}}">
                     @error("link")
@@ -125,7 +125,7 @@
             </div>
 
             <div class="row justify-content-center mb-4">
-                <div class="col-sm-10">
+                <div class="col-sm-11">
                     <button type="submit" class="btn btn-primary mb-4">Save</button>
                     <input type="reset" class="btn btn-secondary mb-4" value="Reset"></button>
                 </div>

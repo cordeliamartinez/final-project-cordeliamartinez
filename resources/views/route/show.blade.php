@@ -54,7 +54,7 @@
                             <path d="M6.731 0 2 9.125h2.788L6.73 5.497l1.93 3.628h2.766L6.731 0zm4.694 9.125-1.372 2.756L8.66 9.125H6.547L10.053 16l3.484-6.875h-2.112z"/>
                           </svg> Link</th>
                         <td>
-                            <a href="{{$routeInfo->link}}">{{$routeInfo->name}}</a>
+                            <a href="{{$routeInfo->link}}" target="_blank">{{$routeInfo->name}}</a>
                         </td>
                     </tr>
                 @endif
@@ -78,25 +78,33 @@
         </div>
     </div>
 
-    <form method="POST" action="{{route('comment.store')}}">
-            @csrf
-            <div class="mb-3">
-                <div class="row justify-content-center">
-                    <div class="col-sm-11">
-                        <input type="hidden" id="route" name="route" value="{{$routeInfo->id}}">
-                        <textarea class="form-control" id="comment" name="comment" placeholder="What is your comment?">{{old('comment')}}</textarea>
-                        @error("comment")
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
+    @if(Auth::check())
+        <form method="POST" action="{{route('comment.store')}}">
+                @csrf
+                <div class="mb-3">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-11">
+                            <input type="hidden" id="route" name="route" value="{{$routeInfo->id}}">
+                            <textarea class="form-control" id="comment" name="comment" placeholder="What is your comment?">{{old('comment')}}</textarea>
+                            @error("comment")
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row g-3 justify-content-center">
-                <div class="col-sm-11">
-                    <button type="submit" class="btn btn-primary mb-4">Comment</button>
+                <div class="row g-3 justify-content-center">
+                    <div class="col-sm-11">
+                        <button type="submit" class="btn btn-primary mb-4">Comment</button>
+                    </div>
                 </div>
+        </form>
+    @else
+        <div class="row justify-content-center mb-3">
+            <div class="col-sm-11">
+                <p class="text-uppercase fst-italic text-primary">Log in to leave a comment.</p>
             </div>
-    </form>
+        </div>
+    @endif
 
     @if(count($comments) > 0)
         @foreach($comments as $comment)
@@ -133,7 +141,7 @@
         @endforeach
     @else
         <div class="row justify-content-center mb-3">
-            <div class="col-sm-10">
+            <div class="col-sm-11">
                 <p class="text-uppercase fst-italic text-primary">No comments yet! Be the first to comment by using the form above.</p>
             </div>
         </div>

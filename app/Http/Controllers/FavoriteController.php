@@ -31,8 +31,6 @@ class FavoriteController extends Controller
     public function destroy($id) {
         $favorite = Favorite::all()->find($id);
 
-        $this->authorize('delete', $favorite);
-
         $favorite->delete();
 
         return redirect()

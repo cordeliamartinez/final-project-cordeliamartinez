@@ -33,8 +33,6 @@ class CommentController extends Controller
     public function edit($id) {
         $comment = Comment::all()->find($id);
 
-        $this->authorize('update', $comment);
-
         return view('comment.edit', [
             'comment' => $comment,
         ]);
@@ -60,8 +58,6 @@ class CommentController extends Controller
 
     public function destroy($id, $routeID) {
         $comment = Comment::all()->find($id);
-
-        $this->authorize('delete', $comment);
 
         $comment->delete();
 

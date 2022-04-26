@@ -4,6 +4,8 @@ namespace App\Policies;
 
 use App\Models\Favorite;
 use App\Models\User;
+use App\Models\Route;
+use Auth;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FavoritePolicy
@@ -37,11 +39,13 @@ class FavoritePolicy
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Route  $route
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(User $user, Route $route)
     {
-        
+        // $favcount = $route->favorite()->where('user_id', '=', $user)->count()
+        // return true;
     }
 
     /**
