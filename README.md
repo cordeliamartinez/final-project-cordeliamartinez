@@ -1,6 +1,6 @@
-<h1>myBikeRoute.com</h1>
-<h3>ITP 405 Final Project</h3>
-<h4>By: Cordelia Martinez Jaime</h4>
+<h1 align="center">myBikeRoute.com</h1>
+<h3 align="center">ITP 405 Final Project</h3>
+<h4 align="center">By: Cordelia Martinez Jaime</h4>
 
 <hr>
 
