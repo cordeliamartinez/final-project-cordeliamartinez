@@ -25,7 +25,7 @@
                 <div class="overlay-text">EXPLORE</div>
             </div>
             <div class="img-overlay" id="overlay-4">
-                <img src="/img/4.jpg" alt="Ride on Bike">
+                <img src="/img/last.jpg" alt="Ride on Bike">
                 <div class="overlay-text">RIDE</div>
             </div>
         </div>
