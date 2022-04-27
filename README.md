@@ -1,3 +1,8 @@
+<p>My deployed app on Heroku <a href="https://assignment-06-cordelia.herokuapp.com/">here.</a></p>
+<p>My video walkthrough <a href="https://usc.zoom.us/rec/share/QLpsz_nW2iOJuH0WXNROZ6zEvXcFIsR6QlrMN_8_dbwVL6I1Z8_XC-01UlUU6i3-.MWSE3Lm2dQaKE-I5?startTime=1651022083000">here.</a></p>
+
+<hr>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
